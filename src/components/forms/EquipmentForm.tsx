@@ -66,7 +66,7 @@ const EquipmentForm = ({ id }: { id?: string }) => {
         })
       })
     }
-  })
+  }, [])
 
   const handleFileChange = event => {
     const file = event.target.files[0]

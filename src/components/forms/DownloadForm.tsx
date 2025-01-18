@@ -60,7 +60,7 @@ const DownloadForm = ({ id }: { id?: number }) => {
         })
       })
     }
-  })
+  }, [])
 
   const handleFileChange = event => {
     const file = event.target.files[0]
