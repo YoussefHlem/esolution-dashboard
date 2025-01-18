@@ -26,11 +26,7 @@ const ProjectsTable = () => {
   const queryClient = useQueryClient()
 
   // Query for fetching projects
-  const {
-    data = [],
-    isLoading,
-    isError
-  } = useQuery({
+  const { data = [], isError } = useQuery({
     queryKey: ['projects'],
     queryFn: projectsApi.listAll
   })
@@ -77,7 +73,7 @@ const ProjectsTable = () => {
         header: 'Image',
         cell: ({ row }) => (
           <img
-            src={`/${row.original.image}`}
+            src={`${row.original.image}`}
             alt={row.original.title}
             style={{ width: 50, height: 50, objectFit: 'cover', borderRadius: '4px' }}
           />

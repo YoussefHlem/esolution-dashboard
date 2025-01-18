@@ -26,11 +26,7 @@ const DownloadsTable = () => {
   const queryClient = useQueryClient()
 
   // Query for fetching downloads
-  const {
-    data = [],
-    isLoading,
-    isError
-  } = useQuery({
+  const { data = [], isError } = useQuery({
     queryKey: ['downloads'],
     queryFn: downloadsApi.listAll
   })
@@ -77,7 +73,7 @@ const DownloadsTable = () => {
         header: 'File',
         cell: ({ row }) => (
           <div className='flex items-center gap-2'>
-            <IconButton component='a' href={`/${row.original.pdfAttachment}`} target='_blank' className='text-primary'>
+            <IconButton component='a' href={`${row.original.pdfAttachment}`} target='_blank' className='text-primary'>
               <i className='tabler-download' />
             </IconButton>
             <Typography className='font-medium' color='text.primary'>

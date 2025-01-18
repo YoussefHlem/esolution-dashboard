@@ -113,7 +113,7 @@ const FileUploadForm = ({
       setPreviewUrl(initialData[imageField.name])
       formik.setValues(initialData, true)
     }
-  }, [initialData])
+  })
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]

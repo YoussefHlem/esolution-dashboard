@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Initial Commit">
+    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Update API base URL and configure Next.js build options&#10;&#10;Updated the Axios client to use the production backend URL. Enabled `ignoreBuildErrors` in the Next.js configuration and added updated dependencies. Simplified PDF download label in the DownloadsTable component.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/axiosClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/axiosClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FileUploadForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileUploadForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/DownloadForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/DownloadForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/EquipmentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/EquipmentForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/NewsForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/NewsForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/ProjectForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/ProjectForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/tables/DownloadsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tables/DownloadsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tables/EquipmentsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tables/EquipmentsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tables/NewsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tables/NewsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tables/ProjectsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tables/ProjectsTable.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +47,9 @@
 }</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -124,7 +133,7 @@
       <option name="presentableId" value="Default" />
       <updated>1736893942214</updated>
       <workItem from="1736893943490" duration="15489000" />
-      <workItem from="1737217775377" duration="1977000" />
+      <workItem from="1737217775377" duration="2738000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -134,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736929376626</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update API base URL and configure Next.js build options&#10;&#10;Updated the Axios client to use the production backend URL. Enabled `ignoreBuildErrors` in the Next.js configuration and added updated dependencies. Simplified PDF download label in the DownloadsTable component.">
+      <option name="closed" value="true" />
+      <created>1737220920747</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737220920747</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +170,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Update API base URL and configure Next.js build options&#10;&#10;Updated the Axios client to use the production backend URL. Enabled `ignoreBuildErrors` in the Next.js configuration and added updated dependencies. Simplified PDF download label in the DownloadsTable component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update API base URL and configure Next.js build options&#10;&#10;Updated the Axios client to use the production backend URL. Enabled `ignoreBuildErrors` in the Next.js configuration and added updated dependencies. Simplified PDF download label in the DownloadsTable component." />
   </component>
 </project>

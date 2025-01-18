@@ -65,7 +65,7 @@ const NewsForm = ({ id }: { id?: number }) => {
         })
       })
     }
-  }, [id])
+  })
 
   const handleFileChange = event => {
     const file = event.target.files[0]

@@ -27,11 +27,7 @@ const NewsTable = () => {
   const queryClient = useQueryClient()
 
   // Query for fetching news
-  const {
-    data = [],
-    isLoading,
-    isError
-  } = useQuery({
+  const { data = [], isError } = useQuery({
     queryKey: ['news'],
     queryFn: newsApi.listAll
   })
@@ -78,7 +74,7 @@ const NewsTable = () => {
         header: 'Image',
         cell: ({ row }) => (
           <img
-            src={`/${row.original.image}`}
+            src={`${row.original.image}`}
             alt={row.original.title}
             style={{ width: 50, height: 50, objectFit: 'cover', borderRadius: '4px' }}
           />

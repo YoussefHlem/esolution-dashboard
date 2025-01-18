@@ -25,11 +25,7 @@ export interface EquipmentType {
 const EquipmentsTable = () => {
   const queryClient = useQueryClient()
 
-  const {
-    data = [],
-    isLoading,
-    isError
-  } = useQuery({
+  const { data = [], isError } = useQuery({
     queryKey: ['equipments'],
     queryFn: equipmentsApi.listAll
   })
@@ -74,7 +70,7 @@ const EquipmentsTable = () => {
         header: 'Image',
         cell: ({ row }) => (
           <img
-            src={`/${row.original.image}`}
+            src={`${row.original.image}`}
             alt={row.original.title}
             style={{ width: 50, height: 50, objectFit: 'cover', borderRadius: '4px' }}
           />

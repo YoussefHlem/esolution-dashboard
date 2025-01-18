@@ -25,6 +25,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table'
+
 import TablePaginationComponent from '@components/TablePaginationComponent'
 
 import CustomTextField from '@core/components/mui/TextField'
@@ -86,8 +87,6 @@ const DebouncedInput = ({
 const ListTable = <T extends BaseDataType>({
   data,
   columns,
-  onDelete,
-  onRefetch,
   createButtonProps,
   searchPlaceholder = 'Search',
   initialPageSize = 25
