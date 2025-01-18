@@ -81,7 +81,7 @@ const DownloadsTable = () => {
               <i className='tabler-download' />
             </IconButton>
             <Typography className='font-medium' color='text.primary'>
-              {row.original.pdfAttachment.split('\\').pop()}
+              Download The PDF
             </Typography>
           </div>
         )
