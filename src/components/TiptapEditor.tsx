@@ -144,10 +144,10 @@ const TiptapEditor: FC<TiptapEditorProps> = ({ value, onChange, error, placehold
           Right
         </Button>
 
-        <Button component='label' size='small' variant='outlined'>
-          Upload Image
-          <input type='file' hidden onChange={handleImageUpload} />
-        </Button>
+        {/*<Button component='label' size='small' variant='outlined'>*/}
+        {/*  Upload Image*/}
+        {/*  <input type='file' hidden onChange={handleImageUpload} />*/}
+        {/*</Button>*/}
       </Box>
       <Box
         sx={{
