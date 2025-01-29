@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Removing uploading image from tiptap editor">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/axiosClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/axiosClient.js" afterDir="false" />
+    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="change baseUrl">
+      <change beforePath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +126,7 @@
       <workItem from="1736893943490" duration="15489000" />
       <workItem from="1737217775377" duration="4666000" />
       <workItem from="1737533616055" duration="1381000" />
-      <workItem from="1738133583390" duration="45000" />
+      <workItem from="1738133583390" duration="589000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -177,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737538047961</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="change baseUrl">
+      <option name="closed" value="true" />
+      <created>1738133640181</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738133640181</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +208,7 @@
     <MESSAGE value="Fix missing dependencies in useEffect hooks across forms.&#10;&#10;Added empty dependency arrays to ensure proper execution of useEffect hooks in multiple forms. Adjusted the Next.js build script to use a custom port. Minor cleanup and updates to workspace configuration for improved maintainability." />
     <MESSAGE value="Fix missing dependencies in useEffect and update build port&#10;&#10;Ensured proper execution of useEffect hooks by adding empty dependency arrays in multiple forms. Updated the Next.js build/start scripts to use a custom port. Minor cleanup and workspace configuration adjustments to improve maintainability." />
     <MESSAGE value="Removing uploading image from tiptap editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing uploading image from tiptap editor" />
+    <MESSAGE value="change baseUrl" />
+    <option name="LAST_COMMIT_MESSAGE" value="change baseUrl" />
   </component>
 </project>

@@ -51,23 +51,23 @@ const TiptapEditor: FC<TiptapEditorProps> = ({ value, onChange, error, placehold
     }
   }, [value, editor])
 
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
-
-    if (file && editor) {
-      const reader = new FileReader()
-
-      reader.onload = () => {
-        editor
-          .chain()
-          .focus()
-          .setImage({ src: reader.result as string })
-          .run()
-      }
-
-      reader.readAsDataURL(file)
-    }
-  }
+  // const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = event.target.files?.[0]
+  //
+  //   if (file && editor) {
+  //     const reader = new FileReader()
+  //
+  //     reader.onload = () => {
+  //       editor
+  //         .chain()
+  //         .focus()
+  //         .setImage({ src: reader.result as string })
+  //         .run()
+  //     }
+  //
+  //     reader.readAsDataURL(file)
+  //   }
+  // }
 
   if (!editor) {
     return null
