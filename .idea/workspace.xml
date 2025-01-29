@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Fix missing dependencies in useEffect and update build port&#10;&#10;Ensured proper execution of useEffect hooks by adding empty dependency arrays in multiple forms. Updated the Next.js build/start scripts to use a custom port. Minor cleanup and workspace configuration adjustments to improve maintainability.">
+    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Removing uploading image from tiptap editor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/axiosClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/axiosClient.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,30 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hlemo/WebstormProjects/esolution-dashboard&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;C:\\Users\\Hlemo\\WebstormProjects\\esolution-dashboard\\node_modules\\stylelint&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Hlemo\\WebstormProjects\\esolution-dashboard\\node_modules\\prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Hlemo\\WebstormProjects\\esolution-dashboard\\node_modules\\typescript\\lib&quot;,
-    &quot;ts.rename.search.for.dynamic.occurrences&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Hlemo/WebstormProjects/esolution-dashboard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "C:\\Users\\Hlemo\\WebstormProjects\\esolution-dashboard\\node_modules\\stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Hlemo\\WebstormProjects\\esolution-dashboard\\node_modules\\prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "C:\\Users\\Hlemo\\WebstormProjects\\esolution-dashboard\\node_modules\\typescript\\lib",
+    "ts.rename.search.for.dynamic.occurrences": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Hlemo\WebstormProjects\esolution-dashboard\src\api" />
@@ -111,7 +112,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
       </set>
     </attachedChunks>
   </component>
@@ -125,7 +126,8 @@
       <updated>1736893942214</updated>
       <workItem from="1736893943490" duration="15489000" />
       <workItem from="1737217775377" duration="4666000" />
-      <workItem from="1737533616055" duration="681000" />
+      <workItem from="1737533616055" duration="1381000" />
+      <workItem from="1738133583390" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -167,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737223752355</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Removing uploading image from tiptap editor">
+      <option name="closed" value="true" />
+      <created>1737538047961</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737538047961</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +200,7 @@
     <MESSAGE value="Refactor query hooks and clean up unused dependencies.&#10;&#10;Simplified query hooks by removing unused `isLoading` properties and adjusted file paths for consistency in APIs. Cleaned up unused props in `ListTable` and fixed dependencies in various forms' `useEffect` hooks to improve stability and maintainability." />
     <MESSAGE value="Fix missing dependencies in useEffect hooks across forms.&#10;&#10;Added empty dependency arrays to ensure proper execution of useEffect hooks in multiple forms. Adjusted the Next.js build script to use a custom port. Minor cleanup and updates to workspace configuration for improved maintainability." />
     <MESSAGE value="Fix missing dependencies in useEffect and update build port&#10;&#10;Ensured proper execution of useEffect hooks by adding empty dependency arrays in multiple forms. Updated the Next.js build/start scripts to use a custom port. Minor cleanup and workspace configuration adjustments to improve maintainability." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix missing dependencies in useEffect and update build port&#10;&#10;Ensured proper execution of useEffect hooks by adding empty dependency arrays in multiple forms. Updated the Next.js build/start scripts to use a custom port. Minor cleanup and workspace configuration adjustments to improve maintainability." />
+    <MESSAGE value="Removing uploading image from tiptap editor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing uploading image from tiptap editor" />
   </component>
 </project>
