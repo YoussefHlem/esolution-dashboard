@@ -13,6 +13,7 @@ import CustomTextField from '@core/components/mui/TextField'
 import Form from '@components/Form'
 import { newsApi } from '@/api/news'
 import TiptapEditor from '@components/TiptapEditor'
+import { ImageUploadField } from '@components/ImageUploadField'
 
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required').min(2, 'Title must be at least 2 characters'),
@@ -121,29 +122,7 @@ const NewsForm = ({ id }: { id?: number }) => {
               )}
             </Grid>
             <Grid size={{ xs: 12 }}>
-              <input
-                type='file'
-                accept='image/*'
-                id='image-upload'
-                name='image'
-                onChange={handleFileChange}
-                style={{ display: 'none' }}
-              />
-              <label htmlFor='image-upload'>
-                <Button variant='outlined' component='span' sx={{ mt: 2 }}>
-                  Upload Image
-                </Button>
-              </label>
-              {formik.values.image && (
-                <Typography variant='body2' sx={{ mt: 2 }}>
-                  File: {formik.values.image.name}
-                </Typography>
-              )}
-              {formik.touched.image && formik.errors.image && (
-                <Typography color='error' variant='caption' sx={{ mt: 1, display: 'block' }}>
-                  {formik.errors.image}
-                </Typography>
-              )}
+              <ImageUploadField formik={formik} previewUrl={formik.values.image} onImageChange={handleFileChange} />
             </Grid>
           </Grid>
           <Box sx={{ mt: 4 }}>

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { Box, Button, Card, CardContent, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent } from '@mui/material'
 import Grid from '@mui/material/Grid2'
 
 import { toast } from 'react-toastify'
@@ -12,6 +12,7 @@ import { toast } from 'react-toastify'
 import CustomTextField from '@core/components/mui/TextField'
 import Form from '@components/Form'
 import { projectsApi } from '@/api/projects'
+import { ImageUploadField } from '@components/ImageUploadField'
 
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required').min(2, 'Title must be at least 2 characters'),
@@ -103,29 +104,7 @@ const ProjectForm = ({ id }: { id?: number }) => {
               />
             </Grid>
             <Grid size={{ xs: 12 }}>
-              <input
-                type='file'
-                accept='image/*'
-                id='image-upload'
-                name='image'
-                onChange={handleFileChange}
-                style={{ display: 'none' }}
-              />
-              <label htmlFor='image-upload'>
-                <Button variant='outlined' component='span' sx={{ mt: 2 }}>
-                  Upload Image
-                </Button>
-              </label>
-              {formik.values.image && (
-                <Typography variant='body2' sx={{ mt: 2 }}>
-                  File: {formik.values.image.name}
-                </Typography>
-              )}
-              {formik.touched.image && formik.errors.image && (
-                <Typography color='error' variant='caption' sx={{ mt: 1, display: 'block' }}>
-                  {formik.errors.image}
-                </Typography>
-              )}
+              <ImageUploadField formik={formik} previewUrl={formik.values.image} onImageChange={handleFileChange} />
             </Grid>
           </Grid>
           <Box sx={{ mt: 4 }}>
