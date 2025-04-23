@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="change baseUrl">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/esolution-dashboard.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ImageUploadField.tsx" afterDir="false" />
+    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Add ImageUploadField component and refactor forms to use it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/EquipmentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/EquipmentForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/NewsForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/NewsForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/ProjectForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/ProjectForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +32,9 @@
     &quot;assignee&quot;: &quot;YoussefHlem&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="00ed0dd1-ac2c-4b71-86fa-72f1a2e631b2" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/YoussefHlem/esolution-dashboard.git&quot;,
@@ -158,7 +151,9 @@
       <workItem from="1744631086032" duration="32000" />
       <workItem from="1744786205657" duration="88000" />
       <workItem from="1745254935937" duration="3582000" />
-      <workItem from="1745352580048" duration="323000" />
+      <workItem from="1745352580048" duration="3483000" />
+      <workItem from="1745398634322" duration="14000" />
+      <workItem from="1745400327870" duration="724000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -216,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738133640181</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add ImageUploadField component and refactor forms to use it">
+      <option name="closed" value="true" />
+      <created>1745355241931</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745355241931</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +244,7 @@
     <MESSAGE value="Fix missing dependencies in useEffect and update build port&#10;&#10;Ensured proper execution of useEffect hooks by adding empty dependency arrays in multiple forms. Updated the Next.js build/start scripts to use a custom port. Minor cleanup and workspace configuration adjustments to improve maintainability." />
     <MESSAGE value="Removing uploading image from tiptap editor" />
     <MESSAGE value="change baseUrl" />
-    <option name="LAST_COMMIT_MESSAGE" value="change baseUrl" />
+    <MESSAGE value="Add ImageUploadField component and refactor forms to use it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ImageUploadField component and refactor forms to use it" />
   </component>
 </project>

@@ -1,8 +1,22 @@
 import type { FC } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { EditorContent, useEditor } from '@tiptap/react'
-import { Box, Divider, IconButton, MenuItem, Select, Tooltip, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  IconButton,
+  MenuItem,
+  Select,
+  TextField,
+  Tooltip,
+  Typography
+} from '@mui/material'
 import { StarterKit } from '@tiptap/starter-kit'
 import { Placeholder } from '@tiptap/extension-placeholder'
 import { Image } from '@tiptap/extension-image'
@@ -18,7 +32,7 @@ import { Italic } from '@tiptap/extension-italic'
 import { CodeBlock } from '@tiptap/extension-code-block'
 import { HorizontalRule } from '@tiptap/extension-horizontal-rule'
 import { HardBreak } from '@tiptap/extension-hard-break'
-
+import { Link } from '@tiptap/extension-link' // Import Link extension
 // Material icons
 import FormatBoldIcon from '@mui/icons-material/FormatBold'
 import FormatItalicIcon from '@mui/icons-material/FormatItalic'
@@ -39,6 +53,9 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn'
 import UndoIcon from '@mui/icons-material/Undo'
 import RedoIcon from '@mui/icons-material/Redo'
 import ImageIcon from '@mui/icons-material/Image'
+import LinkIcon from '@mui/icons-material/Link'
+import LinkOffIcon from '@mui/icons-material/LinkOff'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 
 interface TiptapEditorProps {
   value: string
@@ -49,6 +66,11 @@ interface TiptapEditorProps {
 }
 
 const TiptapEditor: FC<TiptapEditorProps> = ({ value, onChange, error, placeholder, label }) => {
+  const [linkDialogOpen, setLinkDialogOpen] = useState(false)
+  const [linkUrl, setLinkUrl] = useState('')
+  const [linkText, setLinkText] = useState('')
+  const [linkTargetBlank, setLinkTargetBlank] = useState(true)
+
   const editor = useEditor({
     extensions: [
       TextStyle,
@@ -80,7 +102,17 @@ const TiptapEditor: FC<TiptapEditorProps> = ({ value, onChange, error, placehold
       Paragraph,
       CodeBlock,
       HorizontalRule,
-      HardBreak
+      HardBreak,
+      Link.configure({
+        openOnClick: false, // Prevents links from being followed on click in the editor
+        linkOnPaste: true, // Automatically turns pasted URLs into links
+        HTMLAttributes: {
+          // Default HTML attributes for links
+          rel: 'noopener noreferrer',
+          class: 'tiptap-link'
+        },
+        validate: href => /^https?:\/\//.test(href) || href.startsWith('/') || href.startsWith('#') // Basic URL validation
+      })
     ],
     content: value,
     onUpdate: ({ editor }) => {
@@ -110,6 +142,80 @@ const TiptapEditor: FC<TiptapEditorProps> = ({ value, onChange, error, placehold
       }
 
       reader.readAsDataURL(file)
+    }
+  }
+
+  // Open link dialog with current selection text
+  const openLinkDialog = () => {
+    if (editor) {
+      const { from, to } = editor.state.selection
+      const text = editor.state.doc.textBetween(from, to, '')
+
+      setLinkText(text)
+
+      // If a link is selected, get its URL and target
+      if (editor.isActive('link')) {
+        const linkAttrs = editor.getAttributes('link')
+
+        setLinkUrl(linkAttrs.href || '')
+        setLinkTargetBlank(linkAttrs.target === '_blank')
+      } else {
+        setLinkUrl('')
+        setLinkTargetBlank(true)
+      }
+
+      setLinkDialogOpen(true)
+    }
+  }
+
+  // Apply the link to the selected text
+  const applyLink = () => {
+    if (editor) {
+      // Format the URL if it doesn't have a protocol
+      let formattedUrl = linkUrl
+
+      if (
+        formattedUrl &&
+        !formattedUrl.startsWith('http://') &&
+        !formattedUrl.startsWith('https://') &&
+        !formattedUrl.startsWith('/') &&
+        !formattedUrl.startsWith('#')
+      ) {
+        formattedUrl = `https://${formattedUrl}`
+      }
+
+      // Link attributes
+      const linkAttrs = {
+        href: formattedUrl,
+        target: linkTargetBlank ? '_blank' : null,
+        rel: linkTargetBlank ? 'noopener noreferrer' : null
+      }
+
+      // If there's no text selected and link text is provided, insert it
+      if (editor.state.selection.empty && linkText.trim() !== '') {
+        editor
+          .chain()
+          .focus()
+          .insertContent(linkText)
+          .setTextSelection({
+            from: editor.state.selection.from - linkText.length,
+            to: editor.state.selection.from
+          })
+          .setLink(linkAttrs)
+          .run()
+      } else {
+        // Apply link to selected text
+        editor.chain().focus().setLink(linkAttrs).run()
+      }
+
+      setLinkDialogOpen(false)
+    }
+  }
+
+  // Remove link from selection
+  const removeLink = () => {
+    if (editor) {
+      editor.chain().focus().unsetLink().run()
     }
   }
 
@@ -221,6 +327,19 @@ const TiptapEditor: FC<TiptapEditorProps> = ({ value, onChange, error, placehold
               disabled={!editor.can().chain().focus().toggleCode().run()}
             >
               <CodeIcon fontSize='small' />
+            </IconButton>
+          </Tooltip>
+
+          {/* Add Link buttons */}
+          <Tooltip title='Add/Edit Link'>
+            <IconButton size='small' onClick={openLinkDialog} color={editor.isActive('link') ? 'primary' : 'default'}>
+              <LinkIcon fontSize='small' />
+            </IconButton>
+          </Tooltip>
+
+          <Tooltip title='Remove Link'>
+            <IconButton size='small' onClick={removeLink} disabled={!editor.isActive('link')}>
+              <LinkOffIcon fontSize='small' />
             </IconButton>
           </Tooltip>
 
@@ -373,12 +492,74 @@ const TiptapEditor: FC<TiptapEditorProps> = ({ value, onChange, error, placehold
             '& .ProseMirror img': {
               maxWidth: '100%',
               height: 'auto'
+            },
+            '& .ProseMirror a': {
+              color: 'primary.main',
+              textDecoration: 'underline',
+              cursor: 'pointer'
+            },
+            '& .ProseMirror .tiptap-link': {
+              color: 'primary.main',
+              textDecoration: 'underline',
+              cursor: 'pointer'
             }
           }}
         >
           <EditorContent editor={editor} />
         </Box>
       </Box>
+
+      {/* Link Dialog */}
+      <Dialog open={linkDialogOpen} onClose={() => setLinkDialogOpen(false)}>
+        <DialogTitle>Insert/Edit Link</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin='dense'
+            id='link-text'
+            label='Link Text'
+            type='text'
+            fullWidth
+            variant='outlined'
+            value={linkText}
+            onChange={e => setLinkText(e.target.value)}
+            sx={{ mb: 2 }}
+            disabled={!editor?.state.selection.empty}
+          />
+          <TextField
+            margin='dense'
+            id='link-url'
+            label='Link URL'
+            type='url'
+            fullWidth
+            variant='outlined'
+            value={linkUrl}
+            onChange={e => setLinkUrl(e.target.value)}
+            placeholder='https://example.com'
+            sx={{ mb: 2 }}
+          />
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Tooltip title='Open link in new tab'>
+              <IconButton
+                size='small'
+                onClick={() => setLinkTargetBlank(!linkTargetBlank)}
+                color={linkTargetBlank ? 'primary' : 'default'}
+              >
+                <OpenInNewIcon fontSize='small' />
+              </IconButton>
+            </Tooltip>
+            <Typography variant='body2' sx={{ ml: 1 }}>
+              Open link in new tab
+            </Typography>
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setLinkDialogOpen(false)}>Cancel</Button>
+          <Button onClick={applyLink} variant='contained' disabled={!linkUrl}>
+            Apply
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       {error && (
         <Typography color='error' variant='caption' sx={{ mt: 1 }}>
