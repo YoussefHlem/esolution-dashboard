@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Box, Card, Typography } from '@mui/material'
 
 interface ImageUploadFieldProps {
   formik: any
-  previewUrl: string | null
+  previewUrl: string | null | File
   onImageChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   fieldName?: string
 }
@@ -15,6 +15,29 @@ export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
   onImageChange,
   fieldName = 'cover'
 }) => {
+  const [imageUrl, setImageUrl] = useState<string | null>(null)
+
+  useEffect(() => {
+    // Clean up previous object URL to avoid memory leaks
+    if (imageUrl && imageUrl.startsWith('blob:')) {
+      return () => URL.revokeObjectURL(imageUrl)
+    }
+  }, [imageUrl])
+
+  useEffect(() => {
+    if (previewUrl instanceof File) {
+      // Create a URL for the File object
+      const url = URL.createObjectURL(previewUrl)
+      setImageUrl(url)
+    } else if (typeof previewUrl === 'string') {
+      // If it's already a string URL, use it directly
+      setImageUrl(previewUrl)
+    } else {
+      // If it's null or undefined, clear the URL
+      setImageUrl(null)
+    }
+  }, [previewUrl])
+
   return (
     <>
       <input
@@ -43,10 +66,10 @@ export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
             }
           }}
         >
-          {previewUrl ? (
+          {imageUrl ? (
             <Box
               component='img'
-              src={previewUrl}
+              src={imageUrl}
               alt='Cover preview'
               sx={{
                 width: '100%',

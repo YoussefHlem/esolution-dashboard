@@ -11,9 +11,9 @@ import { toast } from 'react-toastify'
 
 import CustomTextField from '@core/components/mui/TextField'
 import Form from '@components/Form'
-import { projectsApi } from '@/api/projects'
-import { ImageUploadField } from '@components/ImageUploadField'
+import { blogsApi } from '@/api/blogs'
 import TiptapEditor from '@components/TiptapEditor'
+import { ImageUploadField } from '@components/ImageUploadField'
 
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required').min(2, 'Title must be at least 2 characters'),
@@ -30,7 +30,7 @@ const validationSchema = Yup.object({
     })
 })
 
-const ProjectForm = ({ id }: { id?: number }) => {
+const BlogForm = ({ id }: { id?: number }) => {
   const formik = useFormik({
     initialValues: {
       title: '',
@@ -47,17 +47,17 @@ const ProjectForm = ({ id }: { id?: number }) => {
       })
 
       try {
-        id ? await projectsApi.update(id, formData) : await projectsApi.create(formData)
-        toast.success(`Project ${id ? 'Updated' : 'Created'} successfully`)
+        id ? await blogsApi.update(id, formData) : await blogsApi.create(formData)
+        toast.success(`Blog ${id ? 'Updated' : 'Created'} successfully`)
       } catch (err) {
-        toast.error(`Failed to ${id ? 'Update' : 'Create'} Project: ${err.response?.data?.message || err.message}`)
+        toast.error(`Failed to ${id ? 'Update' : 'Create'} Blog: ${err.response?.data?.message || err.message}`)
       }
     }
   })
 
   useEffect(() => {
     if (id) {
-      projectsApi.get(id).then(data => {
+      blogsApi.get(id).then(data => {
         formik.setValues({
           title: data.title,
           description: data.description,
@@ -112,7 +112,7 @@ const ProjectForm = ({ id }: { id?: number }) => {
                 value={formik.values.body}
                 onChange={value => formik.setFieldValue('body', value)}
                 error={formik.touched.body && formik.errors.body ? formik.errors.body : undefined}
-                placeholder='Write the project content here...'
+                placeholder='Write the blog content here...'
                 label='Body'
               />
               {formik.touched.body && formik.errors.body && (
@@ -142,4 +142,4 @@ const ProjectForm = ({ id }: { id?: number }) => {
   )
 }
 
-export default ProjectForm
+export default BlogForm

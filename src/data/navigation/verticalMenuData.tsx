@@ -18,6 +18,11 @@ const verticalMenuData = (): VerticalMenuDataType[] => [
     icon: 'tabler-news'
   },
   {
+    label: 'Blogs',
+    href: '/blogs',
+    icon: 'tabler-article'
+  },
+  {
     label: 'Projects',
     href: '/projects',
     icon: 'tabler-clipboard-list'

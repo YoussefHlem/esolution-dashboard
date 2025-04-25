@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Add ImageUploadField component and refactor forms to use it">
+    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Add body field to ProjectForm and integrate TiptapEditor for rich text input">
+      <change afterPath="$PROJECT_DIR$/src/api/blogs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(dashboard)/blogs/add/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(dashboard)/blogs/edit/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(dashboard)/blogs/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/forms/BlogForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/tables/BlogTable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TiptapEditor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/ProjectForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/ProjectForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/navigation/verticalMenuData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/navigation/verticalMenuData.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +158,11 @@
       <workItem from="1745254935937" duration="3582000" />
       <workItem from="1745352580048" duration="3483000" />
       <workItem from="1745398634322" duration="14000" />
-      <workItem from="1745400327870" duration="724000" />
+      <workItem from="1745400327870" duration="892000" />
+      <workItem from="1745426453595" duration="1443000" />
+      <workItem from="1745581014018" duration="155000" />
+      <workItem from="1745581465098" duration="61000" />
+      <workItem from="1745581678113" duration="1968000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -219,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745355241931</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add Link extension to Tiptap editor and implement link dialog functionality">
+      <option name="closed" value="true" />
+      <created>1745401253298</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745401253298</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +262,8 @@
     <MESSAGE value="Removing uploading image from tiptap editor" />
     <MESSAGE value="change baseUrl" />
     <MESSAGE value="Add ImageUploadField component and refactor forms to use it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ImageUploadField component and refactor forms to use it" />
+    <MESSAGE value="Add Link extension to Tiptap editor and implement link dialog functionality" />
+    <MESSAGE value="Add body field to ProjectForm and integrate TiptapEditor for rich text input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add body field to ProjectForm and integrate TiptapEditor for rich text input" />
   </component>
 </project>
