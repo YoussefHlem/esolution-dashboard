@@ -28,6 +28,7 @@ export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
     if (previewUrl instanceof File) {
       // Create a URL for the File object
       const url = URL.createObjectURL(previewUrl)
+
       setImageUrl(url)
     } else if (typeof previewUrl === 'string') {
       // If it's already a string URL, use it directly
