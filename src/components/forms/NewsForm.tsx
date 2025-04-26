@@ -14,11 +14,13 @@ import Form from '@components/Form'
 import { newsApi } from '@/api/news'
 import TiptapEditor from '@components/TiptapEditor'
 import { ImageUploadField } from '@components/ImageUploadField'
+import AppReactDatepicker from '@components/AppReactDatepicker'
 
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required').min(2, 'Title must be at least 2 characters'),
   description: Yup.string().required('Description is required').min(10, 'Description must be at least 10 characters'),
   body: Yup.string().required('Body is required'),
+  createdFrom: Yup.date().nullable(),
   image: Yup.mixed()
     .required('Image is required')
     .test('fileType', 'Only image files are supported', value => {
@@ -36,6 +38,7 @@ const NewsForm = ({ id }: { id?: number }) => {
       title: '',
       description: '',
       body: '',
+      createdFrom: null,
       image: null
     },
     validationSchema,
@@ -62,6 +65,9 @@ const NewsForm = ({ id }: { id?: number }) => {
           title: data.title,
           description: data.description,
           body: data.body,
+
+          // Ensure createdFrom is in ISO string format if it exists
+          createdFrom: data.createdFrom ? new Date(data.createdFrom).toISOString() : null,
           image: data.image
         })
       })
@@ -105,6 +111,18 @@ const NewsForm = ({ id }: { id?: number }) => {
                 onBlur={formik.handleBlur}
                 error={formik.touched.description && Boolean(formik.errors.description)}
                 helperText={formik.touched.description && formik.errors.description}
+              />
+            </Grid>
+            <Grid size={{ xs: 12 }}>
+              <AppReactDatepicker
+                showYearDropdown
+                showMonthDropdown
+                selected={formik.values.createdFrom ? new Date(formik.values.createdFrom) : null}
+                onChange={(date: Date | null) => {
+                  // Format the date as ISO string (2025-04-26T11:02:48.973Z)
+                  formik.setFieldValue('createdFrom', date ? date.toISOString() : null)
+                }}
+                customInput={<CustomTextField label='News Date' fullWidth />}
               />
             </Grid>
             <Grid size={{ xs: 12 }}>
