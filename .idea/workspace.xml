@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Fix ImageUploadField to correctly set image URL from File object">
+    <list default="true" id="21558e05-31a3-46d5-8fe8-cea0385d085a" name="Changes" comment="Add tags functionality to BlogForm with validation and dynamic tag management">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/BlogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/BlogForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +161,7 @@
       <workItem from="1745662407947" duration="387000" />
       <workItem from="1745668270725" duration="3192000" />
       <workItem from="1745859759566" duration="85000" />
-      <workItem from="1746021076201" duration="489000" />
+      <workItem from="1746021076201" duration="1232000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -260,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745670658921</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add tags functionality to BlogForm with validation and dynamic tag management">
+      <option name="closed" value="true" />
+      <created>1746021761062</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746021761062</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +297,7 @@
     <MESSAGE value="Add body field to ProjectForm and integrate TiptapEditor for rich text input" />
     <MESSAGE value="Add BlogForm component with validation and image upload functionality" />
     <MESSAGE value="Fix ImageUploadField to correctly set image URL from File object" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix ImageUploadField to correctly set image URL from File object" />
+    <MESSAGE value="Add tags functionality to BlogForm with validation and dynamic tag management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tags functionality to BlogForm with validation and dynamic tag management" />
   </component>
 </project>

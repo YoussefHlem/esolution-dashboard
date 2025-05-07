@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { Box, Button, Card, CardContent, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, Typography, FormControl, InputLabel, Select, MenuItem, FormHelperText } from '@mui/material'
 import Grid from '@mui/material/Grid2'
 
 import { toast } from 'react-toastify'
@@ -15,6 +15,7 @@ import { downloadsApi } from '@/api/downloads'
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required').min(2, 'Title must be at least 2 characters'),
   description: Yup.string().required('Description is required').min(10, 'Description must be at least 10 characters'),
+  tag: Yup.string().required('Tag is required').oneOf(['brochure', 'flyers', 'technical'], 'Invalid tag value'),
   pdf: Yup.mixed()
     .required('PDF file is required')
     .test('fileType', 'Only PDF files are supported', value => {
@@ -31,6 +32,7 @@ const DownloadForm = ({ id }: { id?: number }) => {
     initialValues: {
       title: '',
       description: '',
+      tag: '',
       pdf: null
     },
     validationSchema,
@@ -56,6 +58,7 @@ const DownloadForm = ({ id }: { id?: number }) => {
         formik.setValues({
           title: data.title,
           description: data.description,
+          tag: data.tag || '',
           pdf: data.pdfAttachment
         })
       })
@@ -100,6 +103,30 @@ const DownloadForm = ({ id }: { id?: number }) => {
                 error={formik.touched.description && Boolean(formik.errors.description)}
                 helperText={formik.touched.description && formik.errors.description}
               />
+            </Grid>
+            <Grid size={{ xs: 12 }}>
+              <FormControl
+                fullWidth
+                error={formik.touched.tag && Boolean(formik.errors.tag)}
+              >
+                <InputLabel id="tag-select-label">Tag</InputLabel>
+                <Select
+                  labelId="tag-select-label"
+                  id="tag-select"
+                  name="tag"
+                  value={formik.values.tag}
+                  label="Tag"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                >
+                  <MenuItem value="brochure">Brochure</MenuItem>
+                  <MenuItem value="flyers">Flyers</MenuItem>
+                  <MenuItem value="technical">Technical</MenuItem>
+                </Select>
+                {formik.touched.tag && formik.errors.tag && (
+                  <FormHelperText>{formik.errors.tag}</FormHelperText>
+                )}
+              </FormControl>
             </Grid>
             <Grid size={{ xs: 12 }}>
               <input
